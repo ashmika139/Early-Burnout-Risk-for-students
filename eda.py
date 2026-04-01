@@ -12,9 +12,6 @@ print(df.columns)
 print("\n Data Types:")
 print(df.dtypes)
 
-print("\n First 5 Rows:")
-print(df.head())
-
 print("\n Missing Values:")
 print(df.isnull().sum())
 print("\n Duplicate Rows:", df.duplicated().sum())
