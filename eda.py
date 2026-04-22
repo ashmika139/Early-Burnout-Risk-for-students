@@ -33,13 +33,13 @@ print("\n Percentage Distribution:")
 print(df[target_col].value_counts(normalize=True) * 100)
 
 #Visualization
-# ---- Target Distribution ----
+#Target Distribution
 plt.figure(figsize=(6,4))
 sns.countplot(x=target_col, data=df)
 plt.title("Burnout Level Distribution")
 plt.show()
 
-# ---- Categorical vs Target ----
+#Categorical vs Target 
 for col in categorical_cols:
     if col != target_col:
         plt.figure(figsize=(6,4))
@@ -48,7 +48,7 @@ for col in categorical_cols:
         plt.xticks(rotation=45)
         plt.show()
 
-# ---- Histograms for numeric features ----
+#histogram 
 df.hist(figsize=(12,10))
 plt.suptitle("Feature Distributions")
 plt.show()
@@ -57,10 +57,10 @@ sns.heatmap(df.corr(numeric_only=True), annot=True, cmap="coolwarm")
 plt.title("Correlation Heatmap")
 plt.show()
 
-# 10. GROUPED ANALYSIS (IMPORTANT)
+#grouped analysis
 print("\n Mean values grouped by burnout level:")
 
-# 11. OUTLIER DETECTION 
+#outliers
 numeric_cols = df.select_dtypes(include=np.number).columns
 for col in numeric_cols:
     plt.figure(figsize=(6,4))
@@ -68,7 +68,7 @@ for col in numeric_cols:
     plt.title(f"Boxplot of {col}")
     plt.show()
 
-# 12. FINAL INSIGHT PRINT
+# Final insight 
 print("\nQUICK INSIGHTS OF THE DATASET:")
 balance = df[target_col].value_counts(normalize=True) * 100
 if max(balance) - min(balance) < 20:
